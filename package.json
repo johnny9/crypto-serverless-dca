@@ -1,0 +1,28 @@
+{
+  "name": "crypto-serverless-dca",
+  "version": "1.0.0",
+  "description": "Dollar Cost Average purchases of Crypto currencies",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnny9/crypto-serverless-dca.git"
+  },
+  "keywords": [
+    "dollar",
+    "cost",
+    "average",
+    "gdax"
+  ],
+  "author": "John Carlson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johnny9/crypto-serverless-dca/issues"
+  },
+  "homepage": "https://github.com/johnny9/crypto-serverless-dca#readme",
+  "dependencies": {
+    "gdax": "^0.5.1"
+  }
+}
