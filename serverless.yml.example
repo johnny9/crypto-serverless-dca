@@ -23,8 +23,25 @@ provider:
   region: us-west-2
 
 functions:
-  dca:
+  purchase_btc:
     handler: handler.start
     environment:
-      GDAX_KEY: myGdaxKey
+      GDAX_KEY: myGdaxKey 
+      GDAX_SECRET: myGdaxSecret 
+      GDAX_PASSPHRASE: myGdaxPassPhrase
+      INVESTMENT_AMOUNT: .1
+    cron:
+      active: true
+      value: '00 10 * * ? *'
+  
+  purchase_eth:
+    handler: handler.start
+    environment:
+      GDAX_KEY: myGdaxKey 
       GDAX_SECRET: myGdaxSecret
+      GDAX_PASSPHRASE: myGdaxPassPhrase 
+      PRODUCT_ID: ETH-USD 
+      INVESTMENT_AMOUNT: .1
+    cron:
+      active: true
+      value: '00 10 * * ? *'
