@@ -64,18 +64,19 @@ function getTotalUsdBalace() {
 
 
 module.exports.start = (event, context, callback) => {
-    getTotalUsdBalace()
-    .then(balance => {
-        console.log(balance)
-        if (balance < process.env.MINIMUM_BALANCE) {
-            console.log('Balance is less than ' + process.env.MINIMUM_BALANCE)
-            var publishParams = {
-                PhoneNumber : process.env.PHONE_NUMBER,
-                Message: 'Gdax balance is low, $' + Math.round(balance)
-            };
-            sns.publish(publishParams);
-        }
-    });
+    if (process.env.MINIMUM_BALANCE && process.env.PHONE_NUMBER) {
+        getTotalUsdBalace()
+        .then(balance => {
+            if (balance < process.env.MINIMUM_BALANCE) {
+                console.log('Balance is less than ' + process.env.MINIMUM_BALANCE)
+                var publishParams = {
+                    PhoneNumber : process.env.PHONE_NUMBER,
+                    Message: 'Gdax balance is low, $' + Math.round(balance)
+                };
+                sns.publish(publishParams);
+            }
+        });
+    }
 
     authorizedClient.buy({
         "funds": purchasePrice,
