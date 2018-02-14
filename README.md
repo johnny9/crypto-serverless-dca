@@ -14,6 +14,7 @@ and secret key.  Save those for step 4.
    `npm install -g serverless`
 4. Configure the serverless credentials you created in the previous step.
    `serverless config credentials --provider aws --key <access key> --secret <secret key>`
+5. (Optional) Install 2FA on your root AWS account.  This can be done in the IAM dashboard.  You will want to do this to protect your GDAX api keys.
    
 ## Deploying
 1. Copy serverless.yml.example to serverless.yml
