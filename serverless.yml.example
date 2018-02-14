@@ -44,7 +44,6 @@ functions:
       MINIMUM_BALANCE: 1000
       PHONE_NUMBER: 18667404531
     events:
-
       # https://docs.aws.amazon.com/lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.html
       - schedule: cron(00 10 * * ? *)
   
