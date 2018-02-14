@@ -26,13 +26,26 @@ functions:
   purchase_btc:
     handler: handler.start
     environment:
+      # These are your API keys that you create in GDAX account settings.
+      #   You will need view and trade permissions.
+      #   https://www.gdax.com/settings/api
       GDAX_KEY: myGdaxKey 
       GDAX_SECRET: myGdaxSecret 
       GDAX_PASSPHRASE: myGdaxPassPhrase
-      INVESTMENT_AMOUNT: .1
-      MINIMUM_BALAND: 1000
+
+      # Investment amount is how much in USD that will be purchased each run.
+      #  GDAX minimum market purchase is $10 so adjust frequency and amount
+      #  with that minimum in mind.
+      INVESTMENT_AMOUNT: 10
+
+      # If MINIMUM_BALANCE and PHONE_NUMBER are set, a text message will
+      #  be sent out when your current balance plus any pending deposit is
+      #  less than MINIMUM_BALANCE.
+      MINIMUM_BALANCE: 1000
       PHONE_NUMBER: 18667404531
     events:
+
+      # https://docs.aws.amazon.com/lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.html
       - schedule: cron(00 10 * * ? *)
   
   purchase_eth:
@@ -41,7 +54,9 @@ functions:
       GDAX_KEY: myGdaxKey 
       GDAX_SECRET: myGdaxSecret
       GDAX_PASSPHRASE: myGdaxPassPhrase 
+
+      # PRODUCT_ID defaults to BTC-USD, change this to change which currency is bought
       PRODUCT_ID: ETH-USD 
-      INVESTMENT_AMOUNT: .1
+      INVESTMENT_AMOUNT: 10
     events:
       - schedule: cron(00 10 * * ? *)
