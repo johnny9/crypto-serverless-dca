@@ -30,9 +30,10 @@ functions:
       GDAX_SECRET: myGdaxSecret 
       GDAX_PASSPHRASE: myGdaxPassPhrase
       INVESTMENT_AMOUNT: .1
-    cron:
-      active: true
-      value: '00 10 * * ? *'
+      MINIMUM_BALAND: 1000
+      PHONE_NUMBER: 18667404531
+    events:
+      - schedule: cron(00 10 * * ? *)
   
   purchase_eth:
     handler: handler.start
@@ -42,6 +43,5 @@ functions:
       GDAX_PASSPHRASE: myGdaxPassPhrase 
       PRODUCT_ID: ETH-USD 
       INVESTMENT_AMOUNT: .1
-    cron:
-      active: true
-      value: '00 10 * * ? *'
+    events:
+      - schedule: cron(00 10 * * ? *)
