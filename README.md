@@ -1,4 +1,4 @@
-# Dollar Cost Average purchases of Crypto currencies
+# Dollar Cost Average purchases of Crypto currencies (GDAX)
 The goal of this project is to provide a simple script to purchase various cryptocurrencies from GDAX that can be deployed 
 easily into AWS Lambda.
 
